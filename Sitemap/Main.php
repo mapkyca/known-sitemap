@@ -40,14 +40,14 @@ namespace IdnoPlugins\Sitemap {
 	 */
 	public static function generate() {
 	    
-	    $types = "Idno\Entities\ActivityStreamPost";//\Idno\Common\ContentType::getRegisteredClasses();
+	    $xml = "";
+	    $types = \Idno\Common\ContentType::getRegisteredClasses();
 	    $offset = 0;
 	    $limit = 50;
 	    
             while ($feed  = \Idno\Core\site()->db()->getObjects($types, [], [], $limit, $offset)) {//\Idno\Entities\ActivityStreamPost::getFromX($types, [], array(), 1, $offset)) {
 		
-		foreach ($feed as $item) {
-		    $obj = $item->getObject();
+		foreach ($feed as $obj) {  
 		    if ($obj) {
 			$url = htmlentities($obj->getUrl());
 			$date = date(DATE_W3C, $obj->updated);
