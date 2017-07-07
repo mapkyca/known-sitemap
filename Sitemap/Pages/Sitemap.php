@@ -2,9 +2,6 @@
 
 namespace IdnoPlugins\Sitemap\Pages {
 
-    /**
-     * Default class to serve the Minds callback
-     */
     class Sitemap extends \Idno\Common\Page {
 
 	
